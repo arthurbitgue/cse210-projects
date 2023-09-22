@@ -2,43 +2,18 @@ using System;
 
 class Program
 {
-    static void Main(string[] args)
+    static void Main()
     {
-        DisplayWelcome();
-        string userName = PromptUserName();
-        int userNumber = PromptUserNumber();
-        int squaredNumber = SquareNumber(userNumber);
-        DisplayResult(userName, squaredNumber);
-    }
+        Job job1 = new Job("Software Engineer", "Microsoft", 2019, 2022);
+        Job job2 = new Job("Manager", "Apple", 2022, 2023);
 
-    static void DisplayWelcome()
-    {
-        Console.WriteLine("Welcome to the program!");
-    }
+        job1.Display();
+        job2.Display();
 
-    static string PromptUserName()
-    {
-        Console.Write("Please enter your name: ");
-        return Console.ReadLine();
-    }
+        Resume myResume = new Resume("Allison Rose");
+        myResume.AddJob(job1);
+        myResume.AddJob(job2);
 
-    static int PromptUserNumber()
-    {
-        Console.Write("Please enter your favorite number: ");
-        return int.Parse(Console.ReadLine());
-    }
-
-    static int SquareNumber(int number)
-    {
-        return number * number;
-    }
-
-    static void DisplayResult(string userName, int squaredNumber)
-    {
-        Console.WriteLine($"{userName}, the square of your number is {squaredNumber}");
+        myResume.Display();
     }
 }
-
-
-
-
